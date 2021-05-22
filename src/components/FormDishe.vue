@@ -78,7 +78,8 @@ export default {
         name: "",
         description: "",
         note: 1,
-        image: ""
+        image: "",
+        id: this.$store.getters.newDishId,
       }
     };
   },

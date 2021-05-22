@@ -41,19 +41,18 @@ const tasksModule = {
   },
   getters: {
     dishes: state => state.dishes,
+    newDishId: state => state.nextId,
   },
   mutations: {
     addDish (state, newDish) {
       // add new dish
-      const dishToAdd = {
-        ...newDish,
-        id: state.nextId,
-      }
-      state.nextId += 1;
       state.dishes = [
         ...state.dishes,
-        dishToAdd,
-      ]
+        {
+          ...newDish,
+        }
+      ];
+      state.nextId += 1;
     },
     removeDish (state, dishIdToRemove) {
       // filter dishes to remove unwanted element
