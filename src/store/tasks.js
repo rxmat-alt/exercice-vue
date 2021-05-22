@@ -1,6 +1,6 @@
 const tasksModule = {
-  state: () => ({
-    dishes: [
+  state: () => {
+    const dishes = [
       {
         id: 1,
         image: "https://i.imgur.com/0umadnY.jpg",
@@ -33,18 +33,37 @@ const tasksModule = {
           "Les BBQ ribs ou barbecue ribs sont des grands classiques très appréciés partout dans le monde.",
         note: 5
       }
-    ]
-  }),
+    ];
+    return {
+      dishes: dishes,
+      nextId: dishes.length + 1,
+    };
+  },
   getters: {
     dishes: state => state.dishes,
   },
   mutations: {
+    addDish (state, newDish) {
+      // add new dish
+      const dishToAdd = {
+        ...newDish,
+        id: state.nextId,
+      }
+      state.nextId += 1;
+      state.dishes = [
+        ...state.dishes,
+        dishToAdd,
+      ]
+    },
     removeDish (state, dishIdToRemove) {
       // filter dishes to remove unwanted element
-      state.dishes =  state.dishes.filter(dish => dish.id != dishIdToRemove);
+      state.dishes = state.dishes.filter(dish => dish.id != dishIdToRemove);
     }
   },
   actions: {
+    addDish ({ commit }, newDish) {
+      commit('addDish', newDish);
+    },
     removeDish ({ commit }, dishIdToRemove) {
       commit('removeDish', dishIdToRemove);
     }
