@@ -1,12 +1,12 @@
 <template>
   <q-page class="q-pa-lg">
     <div class="row q-gutter-lg">
-      <dishe v-for="dishe in dishes" :key="dishe.id" :dishe="dishe" />
+      <dish v-for="dish in dishes" :key="dish.id" :dish="dish" />
 
-      <add-button @click="showFormDishe = true" />
+      <add-button @click="showFormDish = true" />
 
-      <q-dialog v-model="showFormDishe">
-        <form-dishe action="add" />
+      <q-dialog v-model="showFormDish">
+        <form-dish action="add" />
       </q-dialog>
     </div>
   </q-page>
@@ -50,13 +50,13 @@ export default {
           note: 5
         }
       ],
-      showFormDishe: false
+      showFormDish: false
     };
   },
   components: {
-    dishe: require("components/Dishe.vue").default,
+    dish: require("components/Dish.vue").default,
     "add-button": require("components/AddButton.vue").default,
-    "form-dishe": require("components/FormDishe.vue").default
+    "form-dish": require("components/FormDish.vue").default
   }
 };
 </script>
