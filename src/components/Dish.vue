@@ -1,14 +1,14 @@
 <template>
   <q-card class="card">
-    <q-img :src="dishe.image" basic contain>
+    <q-img :src="dish.image" basic contain>
       <div class="absolute-bottom text-h6">
-        {{ dishe.name }}
+        {{ dish.name }}
       </div>
     </q-img>
 
     <q-card-section>
       <q-rating
-        :value="dishe.note"
+        :value="dish.note"
         size="2em"
         color="orange"
         readonly
@@ -17,32 +17,32 @@
     </q-card-section>
 
     <q-card-section>
-      {{ dishe.description }}
+      {{ dish.description }}
     </q-card-section>
 
     <q-card-actions class="absolute-bottom" align="right">
-      <q-btn @click="showFormDishe = true" icon="edit" color="blue" flat
+      <q-btn @click="showFormDish = true" icon="edit" color="blue" flat
         >Modifier</q-btn
       >
       <q-btn icon="delete" color="red" flat>Supprimer</q-btn>
     </q-card-actions>
 
-    <q-dialog v-model="showFormDishe">
-      <form-dishe action="modifier" />
+    <q-dialog v-model="showFormDish">
+      <form-dish action="modifier" />
     </q-dialog>
   </q-card>
 </template>
 
 <script>
 export default {
-  props: ["dishe"],
+  props: ["dish"],
   data() {
     return {
-      showFormDishe: false
+      showFormDish: false
     };
   },
   components: {
-    "form-dishe": require("components/FormDishe.vue").default
+    "form-dish": require("components/FormDish.vue").default
   }
 };
 </script>

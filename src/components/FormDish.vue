@@ -6,13 +6,13 @@
 
     <q-card-section>
       <div class="row q-mb-md">
-        <q-input filled v-model="dishe.name" label="Nom (Burger)" class="col" />
+        <q-input filled v-model="dish.name" label="Nom (Burger)" class="col" />
       </div>
 
       <div class="row q-mb-md">
         <q-input
           filled
-          v-model="dishe.description"
+          v-model="dish.description"
           label="Description"
           type="textarea"
           class="col"
@@ -22,12 +22,12 @@
       <div class="row q-mb-md">
         <q-input
           filled
-          v-model="dishe.image"
+          v-model="dish.image"
           label="URL de l'image"
           class="col"
         />
         <q-img
-          :src="dishe.image ? dishe.image : 'statics/image-placeholder.png'"
+          :src="dish.image ? dish.image : 'statics/image-placeholder.png'"
           class="q-ml-sm"
           contain
         />
@@ -38,7 +38,7 @@
           <p class="q-mb-none">Note:</p>
         </div>
         <div class="row">
-          <q-rating v-model="dishe.note" size="2em" color="orange" />
+          <q-rating v-model="dish.note" size="2em" color="orange" />
         </div>
       </div>
     </q-card-section>
@@ -55,7 +55,7 @@ export default {
   props: ["action"],
   data() {
     return {
-      dishe: {
+      dish: {
         name: "",
         description: "",
         note: 1,
