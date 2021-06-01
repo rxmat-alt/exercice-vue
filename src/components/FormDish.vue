@@ -6,7 +6,7 @@
 
     <q-card-section>
       <div class="row q-mb-md">
-        <q-input filled v-model="dish.name" label="Nom (Burger)" class="col" />
+        <q-input filled v-model="dish.nom" label="Nom (Burger)" class="col" />
       </div>
 
       <div class="row q-mb-md">
@@ -59,10 +59,10 @@ export default {
         name: "",
         description: "",
         note: 1,
-        image: ""
-      }
+        image: "",
+      },
     };
-  }
+  },
 };
 </script>
 

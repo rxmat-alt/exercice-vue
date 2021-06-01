@@ -2,7 +2,7 @@
   <q-card class="card">
     <q-img :src="dish.image" basic contain>
       <div class="absolute-bottom text-h6">
-        {{ dish.name }}
+        {{ dish.nom }}
       </div>
     </q-img>
 
@@ -38,12 +38,12 @@ export default {
   props: ["dish"],
   data() {
     return {
-      showFormDish: false
+      showFormDish: false,
     };
   },
   components: {
-    "form-dish": require("components/FormDish.vue").default
-  }
+    "form-dish": require("components/FormDish.vue").default,
+  },
 };
 </script>
 
